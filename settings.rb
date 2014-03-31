@@ -14,7 +14,9 @@ class Settings
   end
 
   def self.get_insert_size
-    Common.gaussian(3000, 200).round
+    mean = @read_length * 3
+    stddev = @read_length / 2
+    return Common.gaussian(mean, stddev).round
   end
 
 end

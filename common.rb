@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
 module Common
-  def self.gaussian(mu, sig2) # N(mu, sig^2)
-    t = -6.0
-    12.times { t += rand() }
-    t /= 4.0
-    (t * sig2) + mu
+  def self.gaussian(mean, stddev)
+    theta = 2 * Math::PI * rand()
+    rho = Math.sqrt(-2 * Math.log(1 - rand()))
+    scale = stddev * rho
+    x = mean + scale * Math.cos(theta)
+    y = mean + scale * Math.sin(theta)
+    return x
   end
 
   DNA = ["A", "T", "G", "C"]
